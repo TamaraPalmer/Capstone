@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-function Game() {
+function browseArtist() {
   const [music, setMusic] = useState([]);
   const [selectedTrack, setSelectedTrack] = useState(null);
 
   useEffect(() => {
     axios
       .get(
-        "https://v1.nocodeapi.com/daniahern/spotify/nEIKdbDiRpIIoLEF/playlists?id=37i9dQZF1DX4o1oenSJRJd?si=81eadda3b1a647c2"
+        "https://v1.nocodeapi.com/fyiah876/spotify/fHCqbcjtNZRlBCZl/playlists"
       )
       .then((response) => {
         const tracks = response.data.tracks.items.map((item) => {
@@ -71,4 +71,4 @@ function Game() {
   );
 }
 
-export default Game;
+export default browseArtist;

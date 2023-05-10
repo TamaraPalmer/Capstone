@@ -1,17 +1,18 @@
-import './App.scss';
-import Hero from './components/Hero/Hero';
-import Game from './pages/Game';
-import { Routes, Route } from 'react-router-dom';
-
+import React from "react";
+import Home from "./pages/Home";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <main>
+    <div className="App">
+      <Header />
       <Routes>
-        <Route path='/' element={<Hero />} />
-        <Route path='/sonicwave' element={<Game />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Footer />} />
       </Routes>
-    </main>
+    </div>
   );
 }
 

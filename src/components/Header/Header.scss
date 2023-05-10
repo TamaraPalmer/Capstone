@@ -1,0 +1,80 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/typography";
+
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    background-color: $spotify-dark-gray;
+
+    &__logo {
+        margin-right: 30px;
+
+        &-img {
+            height: 50px;
+            width: 150px;
+        }
+    }
+
+    &__navigation {
+        &-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            &-link {
+                display: block;
+                color: $spotify-light-gray;
+                text-decoration: none;
+                padding: 10px;
+                transition: color 0.2s;
+
+                &:hover,
+                &.active {
+                    color: $spotify-green;
+                }
+            }
+        }
+    }
+
+    &__upload {
+        display: flex;
+        align-items: center;
+
+        .header__button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $spotify-white;
+            background-color: $spotify-green;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: darken($spotify-green, 10%);
+            }
+
+            &__upload-icon {
+                margin-right: 5px;
+            }
+        }
+
+        &-picture {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    }
+}
