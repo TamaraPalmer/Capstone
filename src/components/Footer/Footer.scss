@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/typography";
+
+
+.footer {
+    padding: 1rem;
+    background-color: $site-secondary-alabaster;
+    color: $spotify-light-gray;
+    font-size: 0.9rem;
+    text-align: center;
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-right: 1rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            a {
+                color: $spotify-light-gray;
+                text-decoration: none;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: $spotify-green;
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        margin-top: 1rem;
+    }
+}
