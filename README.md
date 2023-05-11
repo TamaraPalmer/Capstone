@@ -1,38 +1,4 @@
 
-Capstone
-Unleash Music's Hidden Gems with DiscoverUs!
-Discover Unsign aka DiscoverUs
-DiscoverUnsign is a platform that provides independent artists with the tools and support they need to break into the music industry and build a fanbase. From scouting and discovering new talent to connecting with other artists and producers, Discover Unsign is the ultimate destination for emerging artists.
-
-
-
-Features
-•	Scouting for unsigned artists
-•	Listening to curated playlists of under-discovered artists
-•	Submitting music for consideration in curated playlists
-•	Educational resources on music licensing and the music industry
-•	Sharing playlists and individual songs with others
-•	Administrator dashboard for reviewing and approving artist submissions
-How to Use
-1.	Sign up for a Discover Unsign account.
-2.	Navigate to the scouting or listening pages to discover new music.
-3.	Submit your own music for consideration in curated playlists.
-4.	Access educational resources from the artist or user dashboard.
-5.	Share playlists and individual songs with others using the provided links.
-6.	Admins can log in to the administrator dashboard to review and approve artist submissions.
-Technologies Used
-•	HTML/CSS
-•	SASS
-•	JavaScript
-•	Node.js
-•	Express.js
-•	Spotify API
-Contributing
-If you would like to contribute to Discover Unsign, please submit a pull request with your changes.
-Credits
-Discover Unsign was created by Tamara Palmer .
-License
-Discover Unsign is licensed under FyiahLLC license. 
 
 # Getting Started with Create React App
 
