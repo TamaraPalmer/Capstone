@@ -3,6 +3,9 @@ Capstone
 Unleash Music's Hidden Gems with DiscoverUs!
 Discover Unsign aka DiscoverUs
 DiscoverUnsign is a platform that provides independent artists with the tools and support they need to break into the music industry and build a fanbase. From scouting and discovering new talent to connecting with other artists and producers, Discover Unsign is the ultimate destination for emerging artists.
+
+
+
 Features
 •	Scouting for unsigned artists
 •	Listening to curated playlists of under-discovered artists
