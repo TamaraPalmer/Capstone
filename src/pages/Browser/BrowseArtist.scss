@@ -1,0 +1,40 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/typography";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  button {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    background-color: $spotify-green;
+    color: $spotify-light-gray;
+    border: none;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: darken($spotify-green, 10%);
+    }
+  }
+
+  .song-title {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: $sound-cloud-orange;
+    font-weight: bold;
+  }
+
+  .artist {
+    font-size: 1.5rem;
+    text-align: center;
+    color: $spotify-light-gray;
+  }
+}

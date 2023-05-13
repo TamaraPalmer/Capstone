@@ -13,6 +13,8 @@
     align-content: flex-start;
     justify-content: space-around;
     align-items: center;
+    background-color: $spotify-green;
+
 
     @include tablet {
         flex-wrap: nowrap;
@@ -85,20 +87,36 @@
     &__navigation {
         &-list {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             list-style: none;
             margin: 0;
             padding: 0;
 
             &-link {
-                display: block;
-                color: $spotify-light-gray;
-                text-decoration: none;
-                padding: 10px;
-                transition: color 0.2s;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                list-style: none;
+                margin: 0;
+                padding: 0;
 
-                &:hover,
-                &.active {
-                    color: $spotify-green;
+                li {
+                    margin-right: 1rem;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    a {
+                        color: $spotify-light-gray;
+                        text-decoration: none;
+                        transition: color 0.2s;
+
+                        &:hover {
+                            color: $spotify-green;
+                        }
+                    }
                 }
             }
         }
@@ -193,7 +211,14 @@
 
 .sidebar {
     position: relative;
-    width: 200px;
+    width: 122px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
 
     &__button {
         display: block;
@@ -221,6 +246,15 @@
 
         &__item {
             margin: 5px 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            display: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 1;
 
             & a {
                 color: #333;
@@ -239,3 +273,4 @@
         }
     }
 }
+
