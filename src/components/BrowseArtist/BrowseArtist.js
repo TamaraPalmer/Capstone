@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "./BrowseArtist.scss";
@@ -86,8 +87,8 @@ function BrowseArtist() {
               </div>
             )}
             <img src={track.image} alt={`${track.artist} - ${track.name}`} />
-            <h2>{track.artist}</h2>
-            <p>{track.name}</p>
+            <Typography>{track.artist}</Typography>
+            <Typography>{track.name}</Typography>
           </div>
         ))}
       </div>

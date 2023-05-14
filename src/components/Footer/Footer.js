@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { makeStyles } from '@mui/styles';
 import "./Footer.scss";
-import logo from "../../assets/images/DiscoverUs.png";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,154 +15,79 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import EmailIcon from '@mui/icons-material/Email';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
-const pages = ['Home', 'About', 'Contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const useStyles = makeStyles((theme) => ({
+  footer: {
+    backgroundColor: theme.palette.primary.main,
+    color: '#fff',
+    padding: '40px',
+    '& .contact-us': {
+      fontSize: '28px',
+      fontWeight: 'bold',
+      marginBottom: '40px'
+    },
+    '& .social-icons': {
+      display: 'flex',
+      alignItems: 'center',
+      '& .MuiIconButton-root': {
+        marginRight: '16px'
+      }
+    },
+    '& .rights-reserved': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginTop: '40px',
+      fontSize: '14px',
+      '& .made-with-love': {
+        marginLeft: '16px'
+      }
+    }
+  }
+}));
 
-function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+function Footer() {
+  const currentYear = new Date().getFullYear();
+  const classes = useStyles();
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
+    <Box component="footer" className={classes.footer}>
+      <Container maxWidth="lg">
+        <Typography variant="h6" className="contact-us">Contact Us</Typography>
+        <Box className="social-icons">
+          <IconButton color="inherit">
+            <EmailIcon />
+          </IconButton>
+          <IconButton color="inherit">
+            <FacebookIcon />
+          </IconButton>
+          <IconButton color="inherit">
+            <TwitterIcon />
+          </IconButton>
+          <IconButton color="inherit">
+            <InstagramIcon />
+          </IconButton>
+        </Box>
+        <Box className="rights-reserved">
+          <Typography variant="body2">
+            &copy; {currentYear} DiscoverUs. All Rights Reserved.
           </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
+          <Typography variant="body2" className="made-with-love">
+            Made with <span role="img" aria-label="heart">❤️</span> by John Doe
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
+        </Box>
       </Container>
-    </AppBar>
+    </Box>
   );
 }
-export default ResponsiveAppBar;
+
+export default Footer;
+
+
 // const Footer = () => {
 //   return (
 //     <footer className="footer">
