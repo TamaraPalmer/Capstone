@@ -5,6 +5,8 @@ import "./BrowseArtist.scss";
 function BrowseArtist() {
   const [music, setMusic] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isHovering, setIsHovering] = useState(-1);
 
   useEffect(() => {
     axios
@@ -12,14 +14,17 @@ function BrowseArtist() {
         "https://v1.nocodeapi.com/fyiah876/spotify/fHCqbcjtNZRlBCZl/playlists?id=5HlbFuuO9gZ3Y4coHUtsSO?si=7dbcfaa9160c4816"
       )
       .then((response) => {
-        const tracks = response.data.tracks.items.map((item) => {
-          const track = item.track;
-          return {
-            name: track.name,
-            artist: track.artists[0].name, // assuming there is only one artist per track
-            preview: track.preview_url,
-          };
-        });
+        const tracks = response.data.tracks.items
+          .slice(0, 6) // include only the first 6 tracks
+          .map((item) => {
+            const track = item.track;
+            return {
+              name: track.name,
+              artist: track.artists[0].name, // assuming there is only one artist per track
+              image: track.album.images[0].url, // get the first image url of the album
+              preview: track.preview_url,
+            };
+          });
         setMusic(tracks);
       });
   }, []);
@@ -28,29 +33,66 @@ function BrowseArtist() {
     const audioPlayer = document.getElementById("audioPlayer");
     if (audioPlayer && music.length > 0) {
       audioPlayer.src = music[currentIndex].preview;
-      audioPlayer.play();
+      if (isPlaying) {
+        audioPlayer.play();
+      } else {
+        audioPlayer.pause();
+      }
     }
-  }, [music, currentIndex]);
+  }, [music, currentIndex, isPlaying]);
 
   function handleSongEnd() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % music.length);
   }
 
-  const currentTrack = music[currentIndex];
+  function handlePlayerClick() {
+    setIsPlaying((prevIsPlaying) => !prevIsPlaying);
+  }
+
+  function handleMouseEnter(index) {
+    setIsHovering(index);
+  }
+
+  function handleMouseLeave() {
+    setIsHovering(-1);
+  }
+
+  function handleCardClick(index) {
+    if (currentIndex === index) {
+      setIsPlaying((prevIsPlaying) => !prevIsPlaying);
+    } else {
+      setCurrentIndex(index);
+      setIsPlaying(true);
+    }
+  }
 
   return (
     <div className="container">
       <audio id="audioPlayer" onEnded={handleSongEnd} preload="auto"></audio>
-      <div>
-        <h1 className="song-title">{currentTrack?.name}</h1>
-        <p className="artist">Artist: {currentTrack?.artist}</p>
+      <div className="cards">
+        {music.map((track, index) => (
+          <div
+            className="card"
+            key={index}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => handleCardClick(index)}
+          >
+            {isHovering === index && (
+              <div className="player">
+                <button onClick={handlePlayerClick}>
+                  {isPlaying ? "Pause" : "Play"}
+                </button>
+              </div>
+            )}
+            <img src={track.image} alt={`${track.artist} - ${track.name}`} />
+            <h2>{track.artist}</h2>
+            <p>{track.name}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
 export default BrowseArtist;
-
-//Scout// link to artist section 
-//Listen// trending song  use an id 
-// top half artist  // top tranding songs 

@@ -41,3 +41,7 @@ const Main = () => {
 };
 
 export default Main;
+
+//Scout// link to artist section
+//Listen// trending song  use an id
+// top half artist  // top tranding songs
