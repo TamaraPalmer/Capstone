@@ -15,8 +15,9 @@ import "./Header.scss";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/DiscoverUs.png";
 
+
 const pages = ["Home", "Browse", "Dashboard"];
-const settings = ["Artist", "Login", "SignUp", "Submit"];
+const settings = ["Artist", "Login", "SignUp"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,7 +39,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "black" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/">
@@ -131,7 +132,9 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Fyiah" 
+                src="/profile/images/avatar/2.jpg"
+                sx={{ width: 20, height: 20 }} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -163,75 +166,3 @@ function ResponsiveAppBar() {
   );
 }
 export default ResponsiveAppBar;
-// const Header = () => (
-//   <header className="header">
-//     <Link to="/">
-//       <div className="header__image">
-//         <img src={logo} alt="Brand logo" className="header__logo" />
-//       </div>
-//     </Link>
-//     <form className="header__form">
-//       <input type="search" placeholder="Search" className="header__search" />
-//     </form>
-//     <div className="header__upload">
-//       <Link to="/upload" className="header__button button">
-//         <img
-//           src={uploadSVG}
-//           alt="Upload icon"
-//           className="header__upload-icon"
-//         />
-//         UPLOAD
-//       </Link>
-//       <img
-//         src={profilePicture}
-//         alt="Profile picture"
-//         className="header__profile-picture"
-//       />
-//     </div>
-//     <nav className="navigation">
-//       <ul className="navigation__list">
-//         <li className="navigation__item">
-//           <Link to="/" className="navigation__link">
-//             Home
-//           </Link>
-//         </li>
-//         <li className="navigation__item">
-//           <Link to="/artists-profile" className="navigation__link">
-//             Artists
-//           </Link>
-//         </li>
-//         <li className="navigation__item">
-//           <Link to="/playlists" className="navigation__link">
-//             Playlists
-//           </Link>
-//         </li>
-//         <li className="navigation__item">
-//           <Link to="/my-playlists" className="navigation__link">
-//             My Playlists
-//           </Link>
-//         </li>
-//       </ul>
-//     </nav>
-//     <aside className="sidebar">
-//       <ul className="sidebar__list">
-//         <li className="sidebar__item">
-//           <Link to="/login" className="sidebar__link">
-//             Login
-//           </Link>
-//         </li>
-//         <li className="sidebar__item">
-//           <Link to="/register" className="sidebar__link">
-//             Register
-//           </Link>
-//         </li>
-//         <li className="sidebar__item">
-//           <Link to="/logout" className="sidebar__link">
-//             Logout
-//           </Link>
-//         </li>
-//       </ul>
-//     </aside>
-//   </header>
-// );
-
-// export default Header;

@@ -34,22 +34,28 @@ function Browse() {
           textAlign: "center",
           mb: 4,
           fontWeight: "bold",
+           color: "red",
         }}
       >
         Benefits of Our Music Service:
       </Typography>
       <ul>
-        <Typography component="li" variant="body1">
+        <Typography component="li" variant="body1"
+         sx={{ fontFamily: "Merriweather", color: "white", mb: 2 }}
+         >
           Discover talented, unsigned artists across a variety of genres
         </Typography>
-        <Typography component="li" variant="body1">
+        <Typography component="li" variant="body1"
+          sx={{ fontFamily: "Merriweather", color: "white", mb: 2 }}>
           Create custom playlists to fit the mood and vibe of your projects
         </Typography>
-        <Typography component="li" variant="body1">
+        <Typography component="li" variant="body1"
+          sx={{ fontFamily: "Merriweather", color: "white", mb: 2 }}>
           Stay up-to-date with the latest releases from your favorite artists
           and potential collaborators
         </Typography>
-        <Typography component="li" variant="body1">
+        <Typography component="li" variant="body1"
+          sx={{ fontFamily: "Merriweather", color: "white", mb: 2 }}>
           Collaborate with emerging talent to bring your projects to life and
           explore new creative directions
         </Typography>

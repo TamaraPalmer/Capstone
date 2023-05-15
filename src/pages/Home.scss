@@ -16,6 +16,8 @@
     background-color: $spotify-green;
 
 
+
+
     @include tablet {
         flex-wrap: nowrap;
         align-items: center;
@@ -55,6 +57,7 @@
             }
         }
     }
+
 
     .home__button {
         color: $spotify-white;

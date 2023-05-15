@@ -31,13 +31,12 @@ export default function Album() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Avatar alt="Sarah Tee" src="/static/images/avatar/2.jpg" />
-      <Typography component="h1" variant="h5">
-        User name
-        Join DiscoverUs to connect with your favorite tracks, playlists and albums from Unsigned artist
+      <Typography component="h2" variant="subtitle6"   sx={{ fontWeight: "bold", color: "Green", mb: 2 }}
+      >
+        Here are favorite tracks, playlists and albums from Unsigned artist
       </Typography>
-      <Typography component="h2" variant="subtitle1">
-          Hi, I'm Sarah, a producer and scout for a major record label. I'm looking for innovative artists who want to push boundaries and make an impact in the industry. Let's work together to create something truly special and take your music to the next level.
+      <Typography component="h1" variant="subtitle4" sx={{ fontWeight:"bold",fontFamily: "Merriweather", color: "red", mb: 2 }}>
+      Top Playlist by Listen
         </Typography>
       <BrowseArtist />
     </ThemeProvider>

@@ -19,11 +19,18 @@
 button {
   padding: 1rem;
   font-size: 1rem;
-  border-radius: 35px;
+  max-width: 80%;
+  border-radius: 72px;
+  height: 21px;
   background-color: $spotify-green;
   color: $spotify-white;
   border: none;
   transition: background-color 0.2s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: darken($spotify-green, 10%);
@@ -54,6 +61,7 @@ button {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  padding-top: 18px;
 
   .card {
     width: 300px;
@@ -79,12 +87,16 @@ button {
     h2 {
       margin: 10px 0;
       font-size: 1.5rem;
+
     }
 
     p {
       margin: 0;
       font-size: 1.2rem;
-      color: $sound-cloud-orange;
+      color: $spotify-white;
+      background-color: $spotify-dark-gray;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
     }
   }
 }

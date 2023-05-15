@@ -21,13 +21,14 @@ const ArtistProfile = ({}) => {
     return <div>Loading...</div>;
   }
 
-  const { name, bio, contact, albums } = artist;
+  const { name, bio, followers, albums } = artist;
 
   return (
     <div className="artist-profile">
       <img src={artist.images[0].url} alt={name} />
       <h2>{name}</h2>
       <p>{bio}</p>
+      <p>{followers}</p>
       <h3>Contact</h3>
       {/* <ul>{contact && contact.map((c, index) => <li key={index}>{c}</li>)}</ul> */}
       <h3>Songs</h3>

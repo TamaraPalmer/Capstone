@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import SignUp from "./pages/Authentication/ArtistSubmissionForm.js/SignUp";
 import Login from "./pages/Authentication/Login";
+import './App.scss';
 
 function App() {
   return (
