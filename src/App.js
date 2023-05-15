@@ -6,6 +6,8 @@ import Browse from "./pages/Browse/Browse";
 import ArtistProfile from "./pages/ArtistProfile/ArtistProfile";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
+import SignUp from "./pages/Authentication/ArtistSubmissionForm.js/SignUp";
+import Login from "./pages/Authentication/Login";
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/browse" element={<Browse />} />
-        <Route path="/artist" element={<ArtistProfile />} />
+        <Route path="/artist/:idFromParams" element={<ArtistProfile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/Login" element={<Login/>} />
+        <Route path="/SignUp" element={<SignUp />} />
       </Routes>
       <Footer />
     </div>

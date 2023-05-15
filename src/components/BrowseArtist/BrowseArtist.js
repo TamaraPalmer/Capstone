@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./BrowseArtist.scss";
 
 function BrowseArtist() {
@@ -24,6 +25,7 @@ function BrowseArtist() {
               artist: track.artists[0].name, // assuming there is only one artist per track
               image: track.album.images[0].url, // get the first image url of the album
               preview: track.preview_url,
+              id: track.artists[0].id,
             };
           });
         setMusic(tracks);
@@ -87,8 +89,10 @@ function BrowseArtist() {
               </div>
             )}
             <img src={track.image} alt={`${track.artist} - ${track.name}`} />
-            <Typography>{track.artist}</Typography>
-            <Typography>{track.name}</Typography>
+            <Link className="next-video" to={`/artist/${track.id}`}>
+              <Typography>{track.artist}</Typography>
+              <Typography>{track.name}</Typography>
+            </Link>
           </div>
         ))}
       </div>

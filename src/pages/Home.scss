@@ -2,7 +2,7 @@
 @import "../../styles/mixins";
 @import "../../styles/typography";
 
-.home_content {
+.home {
     margin-left: 0rem;
     margin-right: 0rem;
     height: 0.5625rem;
@@ -23,6 +23,7 @@
         margin-right: 1.25rem;
         padding-top: .625rem;
         height: 5rem;
+        background-color: $spotify-green;
     }
 
     @include desktop {
@@ -55,109 +56,32 @@
         }
     }
 
-    &__form {
-        width: 100%;
+    .home__button {
+        color: $spotify-white;
+        background-color: $spotify-green;
+        border-radius: 0;
+        max-width: 50%;
+        height: 50%;
+        font-size: 2rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 12px 24;
+        margin-right: 10px;
+        transition: background-color 0.2s;
 
-        @include tablet {
-            margin-right: 1.5rem;
-        }
-    }
-
-    &__search {
-        font-family: "Avenir Regular";
-        width: 60%;
-        height: 2.125rem;
-        margin-bottom: 0.5rem;
-        background: url(http://localhost:3000/static/media/search.b2de04b….svg) no-repeat scroll 7px 9px;
-        background-color: #FAFAFA;
-        padding-left: 2.1875rem;
-        border: 1px solid site-secondary-mercury;
-        border-radius: 1.3125rem;
-
-        @include tablet {
-            margin-bottom: 0;
-            font-size: 1rem;
+        &:hover {
+            background-color: darken($spotify-green, 10%);
         }
 
-        @include desktop {
-            font-size: 0.9rem;
-        }
-    }
-
-    &__navigation {
-        &-list {
+        &__upload-icon {
+            margin-right: 5px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+            justify-content: space-between;
+            width: 100%;
 
-            &-link {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-
-                li {
-                    margin-right: 1rem;
-
-                    &:last-child {
-                        margin-right: 0;
-                    }
-
-                    a {
-                        color: $spotify-light-gray;
-                        text-decoration: none;
-                        transition: color 0.2s;
-
-                        &:hover {
-                            color: $spotify-green;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    &__upload {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: stretch;
-        justify-content: center;
-        align-items: center;
-
-        .home__button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: $spotify-white;
-            background-color: $spotify-green;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin-right: 10px;
-            transition: background-color 0.2s;
-
-            &:hover {
-                background-color: darken($spotify-green, 10%);
-            }
-
-            &__upload-icon {
-                margin-right: 5px;
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-
-                @include tablet {
-                    align-items: center;
-                    justify-content: space-around;
-                }
+            @include tablet {
+                align-items: center;
+                justify-content: space-around;
             }
         }
     }

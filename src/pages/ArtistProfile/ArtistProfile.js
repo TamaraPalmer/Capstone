@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./ArtistProfile.scss";
 import axios from "axios";
 
-const ArtistProfile = ({ artistId }) => {
+const ArtistProfile = ({}) => {
+  const { idFromParams } = useParams();
   const [artist, setArtist] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        `https://v1.nocodeapi.com/fyiah876/spotify/fHCqbcjtNZRlBCZl/playlists?id=5HlbFuuO9gZ3Y4coHUtsSO?si=7dbcfaa9160c4816
-        artists/${artistId}`
+        `https://v1.nocodeapi.com/fyiah876/spotify/fHCqbcjtNZRlBCZl/artists?id=${idFromParams}`
       );
       setArtist(result.data);
     };
     fetchData();
-  }, [artistId]);
+  }, [idFromParams]);
 
   if (!artist) {
     return <div>Loading...</div>;
@@ -28,9 +29,9 @@ const ArtistProfile = ({ artistId }) => {
       <h2>{name}</h2>
       <p>{bio}</p>
       <h3>Contact</h3>
-      <ul>{contact && contact.map((c, index) => <li key={index}>{c}</li>)}</ul>
+      {/* <ul>{contact && contact.map((c, index) => <li key={index}>{c}</li>)}</ul> */}
       <h3>Songs</h3>
-      <ul>
+      {/* <ul>
         {albums.map((album, index) =>
           album.tracks.map((track, index) => (
             <li key={index}>
@@ -40,7 +41,7 @@ const ArtistProfile = ({ artistId }) => {
             </li>
           ))
         )}
-      </ul>
+      </ul> */}
     </div>
   );
 };

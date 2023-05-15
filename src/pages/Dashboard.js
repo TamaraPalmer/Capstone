@@ -5,6 +5,8 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import BrowseArtist from "../components/BrowseArtist/BrowseArtist";
+import Avatar from "@mui/material/Avatar";
+import Icon from "@mui/material/SvgIcon";
 
 const theme = createTheme();
 
@@ -29,9 +31,14 @@ export default function Album() {
 
   return (
     <ThemeProvider theme={theme}>
-        <Typography component="h1" variant="h5">
-            User name
-          </Typography>
+      <Avatar alt="Sarah Tee" src="/static/images/avatar/2.jpg" />
+      <Typography component="h1" variant="h5">
+        User name
+        Join DiscoverUs to connect with your favorite tracks, playlists and albums from Unsigned artist
+      </Typography>
+      <Typography component="h2" variant="subtitle1">
+          Hi, I'm Sarah, a producer and scout for a major record label. I'm looking for innovative artists who want to push boundaries and make an impact in the industry. Let's work together to create something truly special and take your music to the next level.
+        </Typography>
       <BrowseArtist />
     </ThemeProvider>
   );
